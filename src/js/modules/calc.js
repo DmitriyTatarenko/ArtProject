@@ -13,26 +13,23 @@ const calc = (size, material, options, promocode, result) => {
         materialBlock.setAttribute('name', 'material');
         optionsBlock.setAttribute('name', 'options');
         promocodeBlock.setAttribute('name', 'promocode');
+        
       
  
         
 
-      let sizeOption = sizeBlock.textContent;
-      let materialOption = materialBlock.textContent;
-      let optionsOption = optionsBlock.textContent;
-      let promocodeInput = promocodeBlock.textContent;
+ 
 
-   const formData = new FormData(document.querySelector('.form'));
 
-    formData.append('size', sizeOption);
-    formData.append('material', materialOption);
-    formData.append('options', optionsOption);
-    formData.append('promocode', promocodeInput);
+
+    // formData.append('size', sizeBlock.value);
+    // formData.append('material', materialBlock.value);
+    // formData.append('options', optionsBlock.value);
+    // formData.append('promocode', promocodeBlock.value);
 
 
    
-
-        
+ 
        
       
     let summ = 0;
@@ -48,12 +45,19 @@ const calc = (size, material, options, promocode, result) => {
         } else {
             resultBlock.textContent = summ;
         }
+        
      
     };
     sizeBlock.addEventListener('change', calcFunction);
     materialBlock.addEventListener('change', calcFunction);
     optionsBlock.addEventListener('change', calcFunction);
     promocodeBlock.addEventListener('input', calcFunction);
+
+   
+
 };
+
+
+
 
 export default calc;

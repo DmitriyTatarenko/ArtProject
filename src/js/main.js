@@ -6,6 +6,7 @@ import checkTextInputs from "./modules/checkTextInputs";
 import showMoreStyles from "./modules/showMoreStyles";
 import calc from "./modules/calc";
 
+
 window.addEventListener('DOMContentLoaded', () => {
     "use strict";
 

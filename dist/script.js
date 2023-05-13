@@ -4395,16 +4395,11 @@ var calc = function calc(size, material, options, promocode, result) {
   sizeBlock.setAttribute('name', 'size');
   materialBlock.setAttribute('name', 'material');
   optionsBlock.setAttribute('name', 'options');
-  promocodeBlock.setAttribute('name', 'promocode');
-  var sizeOption = sizeBlock.textContent;
-  var materialOption = materialBlock.textContent;
-  var optionsOption = optionsBlock.textContent;
-  var promocodeInput = promocodeBlock.textContent;
-  var formData = new FormData(document.querySelector('.form'));
-  formData.append('size', sizeOption);
-  formData.append('material', materialOption);
-  formData.append('options', optionsOption);
-  formData.append('promocode', promocodeInput);
+  promocodeBlock.setAttribute('name', 'promocode'); // formData.append('size', sizeBlock.value);
+  // formData.append('material', materialBlock.value);
+  // formData.append('options', optionsBlock.value);
+  // formData.append('promocode', promocodeBlock.value);
+
   var summ = 0;
 
   var calcFunction = function calcFunction() {
@@ -4504,7 +4499,7 @@ var forms = function forms() {
     fail: 'assets/img/fail.png'
   };
   var path = {
-    designer: 'assets/server.php',
+    designer: 'assets/question.php',
     question: 'assets/question.php'
   };
 
@@ -4560,6 +4555,22 @@ var forms = function forms() {
       }
 
       console.log(api);
+      var price = document.querySelector('.calc-price').textContent;
+
+      if (!isNaN(+price)) {
+        formData.append('price', price);
+      }
+
+      var formChild = item.children;
+
+      for (var key in formChild) {
+        if (formChild[key].nodeName === 'SELECT') {
+          formData.append(formChild[key].id, formChild[key].options[formChild[key].options.selectedIndex].outerText);
+        } else if (formChild[key].classList === 'INPUT') {
+          formData.append(formChild[key], formChild[key].value);
+        }
+      }
+
       Object(_services_requests__WEBPACK_IMPORTED_MODULE_6__["postData"])(api, formData).then(function (res) {
         console.log(res);
         statusImg.setAttribute('src', message.ok);

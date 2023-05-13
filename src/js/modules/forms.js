@@ -24,7 +24,7 @@ const forms = () => {
     };
 
     const path = {
-        designer: 'assets/server.php',
+        designer: 'assets/question.php',
         question: 'assets/question.php'
     };
 
@@ -89,8 +89,24 @@ const forms = () => {
             api = path.question;
            }
            console.log(api);
-           
 
+           const price = document.querySelector('.calc-price').textContent;
+             if (!isNaN(+price)) {
+                formData.append('price', price);
+                }
+
+            const formChild = item.children;   
+            for (let key in formChild) {
+                if(formChild[key].nodeName === 'SELECT') {
+                    formData.append(formChild[key].id,
+                        formChild[key].options[formChild[key].options.selectedIndex].outerText);
+
+                }  else if (formChild[key].classList === 'INPUT') {
+                    formData.append(formChild[key], formChild[key].value);
+                }
+            }
+           
+         
           
           
         
@@ -120,10 +136,14 @@ const forms = () => {
                 });
                 
         });
+        
+      
 
         
     });
+    
 
+  
 
 };
 
