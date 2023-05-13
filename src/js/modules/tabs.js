@@ -12,12 +12,18 @@ const tabs = (trigger, content, wrapper, beTheFirst) => {
 
         item.classList.add('active');
         
+        if (!item.classList.contains('grandmother') && !item.classList.contains('granddad')) {
+            noPortfolio.style.display = 'none';
+        } 
+
         switch (true) {
             case item.classList.contains('all'):
                 tabs.forEach(tabsItem => {
                     tabsItem.style.display = 'none';
                     if(tabsItem.classList.contains('all')) {
+                        tabsItem.classList.add('animated', 'fadeIn');
                         tabsItem.style.display = 'block';
+                        
                         // contentWrapper.style.justifyContent = "space-around";
                     }
                 });
@@ -27,7 +33,9 @@ const tabs = (trigger, content, wrapper, beTheFirst) => {
             case item.classList.contains('lovers'):
             tabs.forEach(tabsItem => {
                 tabsItem.style.display = 'none';
+               
                 if(tabsItem.classList.contains('lovers')) {
+                    tabsItem.classList.add('animated', 'fadeIn');
                     tabsItem.style.display = 'block';
                     contentWrapper.style.justifyContent = "center";
                 }
@@ -38,6 +46,7 @@ const tabs = (trigger, content, wrapper, beTheFirst) => {
             tabs.forEach(tabsItem => {
                 tabsItem.style.display = 'none';
                 if(tabsItem.classList.contains('chef')) {
+                    tabsItem.classList.add('animated', 'fadeIn');
                     tabsItem.style.display = 'block';
                     contentWrapper.style.justifyContent = "center";
                 }
@@ -48,6 +57,7 @@ const tabs = (trigger, content, wrapper, beTheFirst) => {
                 tabs.forEach(tabsItem => {
                     tabsItem.style.display = 'none';
                     if(tabsItem.classList.contains('girl')) {
+                        tabsItem.classList.add('animated', 'fadeIn');
                         tabsItem.style.display = 'block';
                         contentWrapper.style.justifyContent = "center";
                     }
@@ -58,6 +68,7 @@ const tabs = (trigger, content, wrapper, beTheFirst) => {
                 tabs.forEach(tabsItem => {
                     tabsItem.style.display = 'none';
                     if(tabsItem.classList.contains('guy')) {
+                        tabsItem.classList.add('animated', 'fadeIn');
                         tabsItem.style.display = 'block';
                         contentWrapper.style.justifyContent = "center";
                     }
@@ -68,16 +79,18 @@ const tabs = (trigger, content, wrapper, beTheFirst) => {
             case item.classList.contains('grandmother'):
                 tabs.forEach(tabsItem => {
                     tabsItem.style.display = 'none';
+                noPortfolio.classList.add('animated', 'fadeIn');
                 noPortfolio.style.display = 'block';
                 });
                 break;   
             
-            case item.classList.contains('grandfather'):
-                tabs.forEach(tabsItem => {
-                    tabsItem.style.display = 'none';
-                noPortfolio.style.display = 'block';
-                });
-                break;
+                case item.classList.contains('granddad'):
+                    tabs.forEach(tabsItem => {
+                        tabsItem.style.display = 'none';
+                    noPortfolio.classList.add('animated', 'fadeIn');
+                    noPortfolio.style.display = 'block';
+                    });
+                    break;   
                 
         }
 
