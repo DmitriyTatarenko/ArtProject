@@ -4351,6 +4351,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_checkTextInputs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/checkTextInputs */ "./src/js/modules/checkTextInputs.js");
 /* harmony import */ var _modules_showMoreStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/showMoreStyles */ "./src/js/modules/showMoreStyles.js");
 /* harmony import */ var _modules_calc__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/calc */ "./src/js/modules/calc.js");
+/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/tabs */ "./src/js/modules/tabs.js");
+
 
 
 
@@ -4370,6 +4372,7 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_checkTextInputs__WEBPACK_IMPORTED_MODULE_4__["default"])('[name="message"]');
   Object(_modules_showMoreStyles__WEBPACK_IMPORTED_MODULE_5__["default"])('.button-styles', '#styles .row');
   Object(_modules_calc__WEBPACK_IMPORTED_MODULE_6__["default"])('#size', '#material', '#options', '.promocode', '.calc-price');
+  Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_7__["default"])('.portfolio-menu li', '.portfolio-block', '.portfolio-wrapper', '.portfolio-no');
 });
 
 /***/ }),
@@ -4951,6 +4954,108 @@ var sliders = function sliders(slides, direction, prev, next) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (sliders);
+
+/***/ }),
+
+/***/ "./src/js/modules/tabs.js":
+/*!********************************!*\
+  !*** ./src/js/modules/tabs.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var tabs = function tabs(trigger, content, wrapper, beTheFirst) {
+  var btn = document.querySelectorAll(trigger);
+  var tabs = document.querySelectorAll(content);
+  var contentWrapper = document.querySelector(wrapper);
+  var noPortfolio = document.querySelector(beTheFirst);
+  btn.forEach(function (item) {
+    item.addEventListener('click', function () {
+      btn.forEach(function (btnItem) {
+        btnItem.classList.remove('active');
+      });
+      item.classList.add('active');
+
+      switch (true) {
+        case item.classList.contains('all'):
+          tabs.forEach(function (tabsItem) {
+            tabsItem.style.display = 'none';
+
+            if (tabsItem.classList.contains('all')) {
+              tabsItem.style.display = 'block'; // contentWrapper.style.justifyContent = "space-around";
+            }
+          });
+          break;
+
+        case item.classList.contains('lovers'):
+          tabs.forEach(function (tabsItem) {
+            tabsItem.style.display = 'none';
+
+            if (tabsItem.classList.contains('lovers')) {
+              tabsItem.style.display = 'block';
+              contentWrapper.style.justifyContent = "center";
+            }
+          });
+          break;
+
+        case item.classList.contains('chef'):
+          tabs.forEach(function (tabsItem) {
+            tabsItem.style.display = 'none';
+
+            if (tabsItem.classList.contains('chef')) {
+              tabsItem.style.display = 'block';
+              contentWrapper.style.justifyContent = "center";
+            }
+          });
+          break;
+
+        case item.classList.contains('girl'):
+          tabs.forEach(function (tabsItem) {
+            tabsItem.style.display = 'none';
+
+            if (tabsItem.classList.contains('girl')) {
+              tabsItem.style.display = 'block';
+              contentWrapper.style.justifyContent = "center";
+            }
+          });
+          break;
+
+        case item.classList.contains('guy'):
+          tabs.forEach(function (tabsItem) {
+            tabsItem.style.display = 'none';
+
+            if (tabsItem.classList.contains('guy')) {
+              tabsItem.style.display = 'block';
+              contentWrapper.style.justifyContent = "center";
+            }
+          });
+          break;
+
+        case item.classList.contains('grandmother'):
+          tabs.forEach(function (tabsItem) {
+            tabsItem.style.display = 'none';
+            noPortfolio.style.display = 'block';
+          });
+          break;
+
+        case item.classList.contains('grandfather'):
+          tabs.forEach(function (tabsItem) {
+            tabsItem.style.display = 'none';
+            noPortfolio.style.display = 'block';
+          });
+          break;
+      }
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (tabs);
 
 /***/ }),
 
