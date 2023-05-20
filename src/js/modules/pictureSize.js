@@ -13,7 +13,8 @@ function showImg (block) {
 function hideImg (block) {
     const img = block.querySelector('img');
     img.src = img.src.slice(0, -6) + '.png';
-    img.classList.remove('animated', 'fadeIn');
+    img.classList.remove('fadeIn');
+    
     block.querySelectorAll('p:not(.sizes-hit)').forEach(p => {
         p.style.display = 'block'; 
     });
